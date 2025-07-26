@@ -1,0 +1,45 @@
+services:
+  docmost:
+    image: docmost/docmost:latest
+    depends_on:
+      - db
+      - redis
+    environment:
+      APP_URL: "https://docmost.sk" #URL of the Web page
+      APP_SECRET: "Secreat" # App secreat
+      DATABASE_URL: "postgresql://DB_User:DB_Password@db:5432/DB_Name?schema=public" #Edit User, Password, DB
+      REDIS_URL: "redis://redis:6379" # Redis Database URL
+      MAIL_DRIVER: "smtp"
+      SMTP_HOST: "smtp.m1.websupport.sk"
+      SMTP_PORT: "465"
+      SMTP_USERNAME: "noreply@noronetwork.sk"
+      SMTP_PASSWORD: "S4o415c7Yaly23jXfkiv."
+      SMTP_SECURE: "true"
+      MAIL_FROM_ADDRESS: "noreply@noronetwork.sk"
+      MAIL_FROM_NAME: "Docmost NoroNetwork"
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    volumes:
+      - docmost:/app/data/storage
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: DB_Name    #DB Name
+      POSTGRES_USER: DB_User  #DB User 
+      POSTGRES_PASSWORD: DB_Password #Redis Database Password
+    restart: unless-stopped   
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7.2-alpine
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+
+volumes:
+  docmost:
+  db_data:
+  redis_data:

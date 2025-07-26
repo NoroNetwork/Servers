@@ -1,0 +1,1 @@
+This are all docker templates that i have used over time.
