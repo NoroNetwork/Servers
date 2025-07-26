@@ -1,0 +1,1 @@
+Vsetko tikajuce sa Docker
