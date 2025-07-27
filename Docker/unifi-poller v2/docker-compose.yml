@@ -3,7 +3,7 @@ services:
     restart: always
     image: influxdb:1.8
     ports:
-      - 8086:8086
+      - 8086:8086  # <Host Port>:<Container Port>
     volumes:
       - influxdb-storage:/var/lib/influxdb
     environment:
