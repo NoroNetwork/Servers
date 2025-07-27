@@ -1,0 +1,5 @@
+- hosts: docker_noronetwork
+  become: true
+  tasks:
+    - name: Get hostname
+      shell: echo $HOSTNAME
