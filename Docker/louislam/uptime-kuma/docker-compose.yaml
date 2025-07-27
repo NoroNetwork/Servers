@@ -1,0 +1,9 @@
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    volumes:
+      - ~/uptime-kuma-data:/app/data #Path to your uptime-kuma-data folder
+    ports:
+      - 4001:3001  # <Host Port>:<Container Port>
+    restart: unless-stopped

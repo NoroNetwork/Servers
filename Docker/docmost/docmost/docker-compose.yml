@@ -10,15 +10,15 @@ services:
       DATABASE_URL: "postgresql://DB_User:DB_Password@db:5432/DB_Name?schema=public" #Edit User, Password, DB
       REDIS_URL: "redis://redis:6379" # Redis Database URL
       MAIL_DRIVER: "smtp"
-      SMTP_HOST: "smtp.m1.websupport.sk"
-      SMTP_PORT: "465"
-      SMTP_USERNAME: "noreply@noronetwork.sk"
-      SMTP_PASSWORD: "S4o415c7Yaly23jXfkiv."
-      SMTP_SECURE: "true"
-      MAIL_FROM_ADDRESS: "noreply@noronetwork.sk"
-      MAIL_FROM_NAME: "Docmost NoroNetwork"
+      SMTP_HOST: "smtp.xxxx.yyy" #address of your SMTP server
+      SMTP_PORT: "465"  #Port witch SMTP server uses
+      SMTP_USERNAME: "noreply@domain.com" # Username for Email
+      SMTP_PASSWORD: "ChangeMe" #Password for your Email
+      SMTP_SECURE: "true" #Ture if TLS is used
+      MAIL_FROM_ADDRESS: "noreply@domain.com" #Mail adress from witch server sends Email 
+      MAIL_FROM_NAME: "Docmost" #Name of Email
     ports:
-      - "3000:3000"
+      - "3000:3000" # <Host Port>:<Container Port>
     restart: unless-stopped
     volumes:
       - docmost:/app/data/storage

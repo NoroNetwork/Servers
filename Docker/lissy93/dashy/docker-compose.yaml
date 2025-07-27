@@ -6,7 +6,7 @@ services:
     volumes:
       - /home/"user"/dashy/app/user-data:/app/user-data
     ports:
-      - 4000:8080 #service ports OUT/IN
+      - 4000:8080 # <Host Port>:<Container Port>
     # Set any environmental variables
     environment:
       - NODE_ENV=production
