@@ -1,0 +1,5 @@
+default:
+  user: prometheus@pam    #Api Token User
+  token_name: "exporter"  #Api Token Name
+  token_value: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" #Api token 
+  verify_ssl: false #If you are pointing to Proxmox node running HTTPS then change to True to use SSL

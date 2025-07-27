@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 15s
+scrape_configs:
+  - job_name: 'prometheus-docker-homelab'
+    static_configs:
+      - targets: ['localhost:9090']   #IP of Node that you are running Prometheus on
+  - job_name: 'cadvisor-docker-homelab'
+    static_configs:
+      - targets: ['cadvisor:8080']  #IP of Node that you are running Cadvisor
+  - job_name: 'Docker-Homelab'
+    static_configs:
+      - targets: ['node-exporter:9100'] #IP of Node that you are running Node Exporter or container if on the same host and Network
